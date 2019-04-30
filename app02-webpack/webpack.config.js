@@ -13,5 +13,16 @@ module.exports = {
             template: "src/index.html",
             inject : "body"
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.css$/, // instructs webpack to process all files matching this pattern using a pipeline of loaders below
+                loader: [
+                    "style-loader", // adds this as a style element to the DOM
+                    "css-loader" // loads css files and returns css code
+                ]
+            }
+        ]
+    }
 };
